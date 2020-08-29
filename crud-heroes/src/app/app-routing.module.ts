@@ -4,10 +4,10 @@ import { WizardComponent } from './pages/wizard/wizard.component'
 import { ListComponent } from './pages/list/list.component'
 
 const routes: Routes = [
-  {path: 'list/:id', component: WizardComponent},
+  {path: 'wizard/:id', component: WizardComponent},
   {path: 'list', component: ListComponent},
   {path: 'routePath', component: ListComponent},
-  {path: '**', pathMatch: 'full', redirectTo: 'home'}
+  {path: '**', pathMatch: 'full', redirectTo: 'list'}
 ];
 
 @NgModule({

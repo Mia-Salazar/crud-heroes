@@ -1,0 +1,5 @@
+.wizard {
+    .btn-outline-danger:not(:disabled):not(.disabled).active:focus, .btn-outline-danger:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-danger.dropdown-toggle:focus {
+        box-shadow: none;
+    }
+}
