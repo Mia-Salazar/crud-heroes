@@ -2,3 +2,24 @@
 h1 {
     font-size: 32px;
 }
+
+span.badge.new:after {
+    content: ''
+}
+
+.main-container {
+    padding-bottom: 170px
+
+}
+
+table {
+    @media (max-width: 767px) {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+.material-icons {
+    cursor: pointer;
+}

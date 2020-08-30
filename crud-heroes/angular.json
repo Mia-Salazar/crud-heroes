@@ -70,7 +70,8 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "crud-heroes:build:production"
+              "browserTarget": "your-application-name:build",
+              "proxyConfig": "src/proxy.conf.json"
             }
           }
         },

@@ -1,33 +1,40 @@
 <section class="container">
-	<h1 class="mb-5">Wizard's List</h1>
+	<h1 class="mb-5">Wizard</h1>
 	<button class="waves-effect waves-light btn light-blue darken-3" routerLink="/wizard/new">Add wizard</button>
-	<table>
+	<table class="mt-5">
 		<thead>
 			<tr>
 				<th>#</th>
 				<th>Name</th>
 				<th>Speciality</th>
-				<th>Tools</th>
+				<th>House</th>
 				<th>Alive</th>
+				<th>Edit</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 
 		<tbody>
-			<tr>
-				<td>Alvin</td>
-				<td>Eclair</td>
-				<td>$0.87</td>
-				<td>$0.87</td>
-				<td>$0.87</td>
+			<tr *ngFor="let el of wizardList; let i = index">
+				<td>{{el.id}}</td>
+				<td>{{el.name | titlecase}}</td>
+				<td>{{el.speciality | titlecase}}</td>
+				<td>{{el.house | titlecase }}</td>
+				<td>
+					<span class="new badge green darken-4" *ngIf="el.alive == true">Alive</span>
+					<span class="new badge  red darken-4" *ngIf="el.alive == false">Dead</span>
+				</td>
+				<td [routerLink]="['/wizard', el.id]"><i class="material-icons">create</i></td>
+				<td (click)="eraseWizard(el, i)"><i class="material-icons">delete</i></td>
 			</tr>
 		</tbody>
 	</table>
-	<article class="mx-auto d-flex flex-column align-items-center">
+	<article class="mx-auto d-flex flex-column align-items-center" *ngIf="wizardList.length < 0">
 		<p class="red-text text-darken-4">There is nothing here <strong>yet</strong></p>
 		<i class="material-icons">mood_bad</i>
 	</article>
 
-	<article class="preloader-wrapper big active mx-auto d-flex flex-column align-items-center">
+	<article class="preloader-wrapper big active mx-auto d-flex flex-column align-items-center" *ngIf="loading">
 		<div class="spinner-layer spinner-blue-only">
 			<div class="circle-clipper left">
 				<div class="circle"></div>

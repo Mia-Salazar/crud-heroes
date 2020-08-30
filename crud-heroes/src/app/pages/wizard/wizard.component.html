@@ -1,7 +1,7 @@
 <section class="container wizard">
 	<div class="d-flex flex-column flex-md-row mb-5 align-items-center justify-content-between">
 		<h1 class="mb-5">Wizard's List</h1>
-		<button class="waves-effect waves-light btn light-blue darken-3" routerLink="/list">Go back <i class="material-icons">arrow_back</i></button>
+		<button class="waves-effect waves-light btn light-blue darken-3 d-flex align-items-center" routerLink="/list">Go back <i class="material-icons ml-2">arrow_back</i></button>
 	</div>
 	<div class="row">
 		<div class="col-12">
@@ -13,26 +13,37 @@
 				</div>
 				<div class="form-group mb-5">
 					<label for="name">Name</label>
-					<input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Name" [(ngModel)]="wizard.name" anme="name" required>
+					<input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Name" [(ngModel)]="wizard.name" name="name" required>
 				</div>
 				<div class="form-group mb-5">
 					<label for="speciality">Speciality</label>
 					<input type="text" class="form-control" id="speciality" aria-describedby="speciality" name="speciality" placeholder="Speciality" [(ngModel)]="wizard.speciality">
 				</div>
 				<div class="form-group mb-5">
-					<label for="tools">Tools</label>
-					<input type="text" class="form-control" id="tools" aria-describedby="tools" placeholder="Tools" name="tools" [(ngModel)]="wizard.tool">
+					<label for="house">House</label>
+					<input type="text" class="form-control" id="tools" aria-describedby="house" placeholder="House" name="house" [(ngModel)]="wizard.house">
 				</div>
 				<div class="form-group mb-5 d-flex flex-column">
-					<label for="tools">Status</label>
+					<label for="house">Status</label>
 					<div class="btn-group" role="group" aria-label="Basic example">
 						<button *ngIf="!wizard.alive" (click)="wizard.alive = true" type="button" class="btn-outline-danger py-4 d-flex justify-content-center align-items-center w-50">Dead <i class="material-icons ml-2">thumb_down</i></button>
 						<button *ngIf="wizard.alive" (click)="wizard.alive = false" type="button" class="btn-outline-success py-4 d-flex justify-content-center align-items-center w-50" >Alive <i class="material-icons ml-2">face</i></button>
 					</div>
 				</div>
-				<button type="submit" class="waves-effect waves-light btn light-blue darken-3">Submit <i class="material-icons right">send</i></button>
-		
+				<button type="submit" class="waves-effect waves-light btn light-blue darken-3" *ngIf="!loading">Submit <i class="material-icons right">send</i></button>
+				<div class="preloader-wrapper big active" *ngIf="loading">
+					<div class="spinner-layer spinner-blue-only">
+					  <div class="circle-clipper left">
+						<div class="circle"></div>
+					  </div><div class="gap-patch">
+						<div class="circle"></div>
+					  </div><div class="circle-clipper right">
+						<div class="circle"></div>
+					  </div>
+					</div>
+				</div>
 			</form>
+			<p *ngIf="status != ''" class="green darken-4 text-white d-flex align-items-center mt-4 p3"><i class="material-icons mr-2">done</i>{{status}}</p>
 
 		</div>
 	</div>

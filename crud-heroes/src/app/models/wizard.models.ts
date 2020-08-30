@@ -2,7 +2,7 @@ export class WizardModel {
     id:string;
     name:string;
     speciality:string;
-    tool:string;
+    house:string;
     alive:boolean
 
     constructor(){
