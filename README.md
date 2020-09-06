@@ -1,4 +1,4 @@
-# CRUC project
+# CRUD project
 
 > A CRUD project made with Angular, Javascript, SASS, Firebase, Bootstrap4, Materialize, CSS3 and HTML5
 
